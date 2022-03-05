@@ -1,9 +1,5 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
+
 </ion-header>
 
 <ion-content [fullscreen]="true">
@@ -12,6 +8,34 @@
       <ion-title size="large">Tab 1</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-item>
+    <ion-label>Nombre</ion-label>
+    <ion-input placeholder="Pachito" [(ngModel)] = "nombre"></ion-input>
+    <ion-label>Apellido</ion-label>
+    <ion-input placeholder="Perez"  [(ngModel)] = "apellido"></ion-input>
+    <ion-label>Matricula</ion-label>
+    <ion-input placeholder="1948373" [(ngModel)] = "matricula"></ion-input>
+    <ion-button expand="full" color="dark" (click)="agregarAlumno()">Agregar Alumno</ion-button>
+  </ion-item>
+    <ion-grid>
+    <ion-row *ngFor="let alumno of alumnos">
+      <ion-col>
+      <ion-card>
+        <ion-card-content>
+          <ion-row>
+          <ion-col>
+            <p>Nombre: {{alumno.nombre}}</p>
+            <p>Apellido: {{alumno.apellido}}</p>
+            <p>Matricula: {{alumno.matricula}}</p>
+          </ion-col>
+          <ion-col class="alinear">
+            <img src="assets/imagenes/fcfm.png" alt="" width="70" height="70" />
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+      </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
 </ion-content>
